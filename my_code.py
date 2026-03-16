@@ -15,10 +15,11 @@ def test_fix_phone_num():
     assert fix_phone_num("5554429876") == "(555) 442 9876"
     assert fix_phone_num("3216543333") == "(321) 654 3333"
 
-def test_phone_num_length(phonenum):
-    if (len(phonenum) != 10):
-        raise ValueError("Can only format numbers that are exactly 10 digits long")
+def test_phone_num_length():
+    assert len("555-442-98761") == 10
+    assert len("3213) 654 3333") == 10
 
-def phone_num_length_asserts():
-    assert test_phone_num_length("555-442-98761")
-    assert test_phone_num_length("(3213) 654 3333")
+
+def test_is_digits():
+    assert "334dfdee45".isdigit() == True
+    assert "abcdefghij".isdigit() == True
