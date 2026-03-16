@@ -11,4 +11,14 @@ def fix_phone_num(phone_num_to_fix):
   return fixed_num
 
 def test_fix_phone_num():
-  assert fix_phone_num("5125558823") == '(512) 555 8823'
+    assert fix_phone_num("5125558823") == '(512) 555 8823'
+    assert fix_phone_num("5554429876") == "(555) 442 9876"
+    assert fix_phone_num("3216543333") == "(321) 654 3333"
+
+def test_phone_num_length(phonenum):
+    if (len(phonenum) != 10):
+        raise ValueError("Can only format numbers that are exactly 10 digits long")
+
+def phone_num_length_asserts():
+    assert test_phone_num_length("555-442-98761")
+    assert test_phone_num_length("(3213) 654 3333")
